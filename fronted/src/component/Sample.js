@@ -1,39 +1,24 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState } from "react";
+// import axios from "axios";
 
-function Sample() {
-  //   const [persons, setPersons] = useState();
-  const posts = [
-    { id: 1, title: "Hello World", content: "Welcome to learning React!" },
-    {
-      id: 2,
-      title: "Installation",
-      content: "You can install React from npm.",
-    },
-  ];
-  async function postData(
-    url = "https://api.wazirx.com/api/v2/depth?market=btcusdt",
-    data = {}
-  ) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "asdf",
-      },
-    });
-    console.log(response.json()); // parses JSON response into native JavaScript objects
-  }
-  postData();
-  return (
-    <>
-      {posts.map((post) => (
-        <div>{post.title}</div>
-      ))}
-      {/* {persons.map((person) => (
-        <div>{person.name}</div>
-      ))} */}
-    </>
-  );
-}
+// function Sample() {
+//   const [message, setMessage] = useState();
+//   async function fetchData() {
+//     const response = await fetch("http://localhost:4000/");
+//     const data = response.json();
+//     console.log(data);
+//   }
+//   fetchData();
+//   axios
+//     .get("https://api.wazirx.com/api/v2/depth?market=btcusdt")
+//     .then((resp) => {
+//       console.log(resp.data);
+//     });
+//   return (
+//     <div>
+//       <p>Some Value</p>
+//     </div>
+//   );
+// }
 
-export default Sample;
+// export default Sample;
