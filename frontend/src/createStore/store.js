@@ -1,13 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
+import persistStore from "redux-persist/lib/persistStore";
 import rootReducer from "../reducer";
 
 const store= configureStore({
     reducer:rootReducer,
-    middleware:(getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    devTools:process.env.NODE_ENV === 'development',
+    middleware:(getDefaultMiddleware) => getDefaultMiddleware({
+      serializableCheck:false
+    }).concat(logger),
 });
 
-if (process.env.NODE_ENV === 'development' && module.hot) {
+if (module.hot) {
   module.hot.accept('../reducer', () => {
     const newRootReducer = require('../reducer').default
     store.replaceReducer(newRootReducer)
@@ -15,13 +19,4 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 }
 
 export default store;
-  
-// export default store;
-// import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '../components/counterSlice';
-
-// export default configureStore({
-//   reducer: {
-//     counter: rootReducer,
-//   },
-// });
+export const persistor= persistStore(store);
