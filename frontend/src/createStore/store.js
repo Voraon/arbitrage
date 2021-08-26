@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import rootReducer from "./reducer";
+import rootReducer from "../reducer";
 
 const store= configureStore({
     reducer:rootReducer,
@@ -8,8 +8,8 @@ const store= configureStore({
 });
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./reducer', () => {
-    const newRootReducer = require('./reducer').default
+  module.hot.accept('../reducer', () => {
+    const newRootReducer = require('../reducer').default
     store.replaceReducer(newRootReducer)
   })
 }

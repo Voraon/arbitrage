@@ -3,7 +3,7 @@ const initialState={
     value:4
 }
 export const demoSlice = createSlice({
-    name: "counter",
+    name: "count",
     initialState,
     reducers:{
         increment:(state)=>{
@@ -21,7 +21,7 @@ export const demoSlice = createSlice({
 })
 
 export const {name} = demoSlice;
-export const selectCount = (state)=>state.counter.value;
+export const selectCount = (state)=>state.count.value;
 
 export const {
     increment,decrement,incrementByAmount
