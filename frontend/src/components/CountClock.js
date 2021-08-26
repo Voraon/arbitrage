@@ -1,17 +1,20 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { increment } from '../reducer/counterSlice';
+import { increment, name, selectCount } from '../reducer/counterSlice';
 
 function CountClock() {
 
      const dispatch = useDispatch();
-     const name = useSelector(state => state.name)
-
+     const count = useSelector(selectCount);
+    
+     const handleIncrement=()=>{
+         dispatch(increment())
+     }
 
     return (
         <div>
-            {name}
-            <button onClick={()=>dispatch(increment)}>increment</button>
+            {count} {name}
+            <button onClick={handleIncrement}>increment</button>
         </div>
     )
 }

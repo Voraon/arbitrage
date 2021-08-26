@@ -1,27 +1,30 @@
 import {createSlice} from "@reduxjs/toolkit"
 const initialState={
-    count:4
+    value:4
 }
-export const counterSlice = createSlice({
+export const demoSlice = createSlice({
     name: "counter",
     initialState,
     reducers:{
         increment:(state)=>{
-            state.count=state.count+1;
+            state.value+=1;
 
         },
         decrement:(state)=>{
-            state.count=state.count-1;
-        }
+            state.value+=-1;
+        },
+        
+    incrementByAmount: (state, {payload}) => {
+        state.value += payload;
+      },
     }
 })
 
-export const {name} = counterSlice;
-
-// export const count = useSelector(state => state.count)
+export const {name} = demoSlice;
+export const selectCount = (state)=>state.counter.value;
 
 export const {
-    increment,decrement
-}= counterSlice.actions;
+    increment,decrement,incrementByAmount
+}= demoSlice.actions;
 
-export default counterSlice.reducer;
+export default demoSlice.reducer;
