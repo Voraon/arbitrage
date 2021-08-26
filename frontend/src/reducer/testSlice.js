@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit"
 const initialState={
-    value:0
+    value:100
 }
 export const testSlice = createSlice({
-    name: "counter",
+    name: "test",
     initialState,
     reducers:{
         sum:(state)=>{
@@ -21,7 +21,7 @@ export const testSlice = createSlice({
 })
 
 export const {name} = testSlice;
-export const selectCount = (state)=>state.counter.value;
+export const selectCount = (state)=>state.test.value;
 
 export const {
     sum,minus,sumByAmount

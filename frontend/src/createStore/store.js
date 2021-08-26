@@ -7,7 +7,7 @@ const store= configureStore({
     reducer:rootReducer,
     devTools:process.env.NODE_ENV === 'development',
     middleware:(getDefaultMiddleware) => getDefaultMiddleware({
-      serializableCheck:false
+      serializableCheck:false,
     }).concat(logger),
 });
 

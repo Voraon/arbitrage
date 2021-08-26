@@ -9,11 +9,16 @@ import testReducer from "./testSlice";
 const persistConfig = (key)=>({
     key,
     storage,
+    // whitelist:'testRedx'
   });
    
-  const rootReducer= combineReducers({
-    count: persistReducer(persistConfig("counRdx"), counterReducer) ,
-    test:persistReducer(persistConfig("testRedx"), testReducer)
+const rootReducer= combineReducers({
+    count: persistReducer(persistConfig("counter"), counterReducer) ,
+    test:persistReducer(persistConfig("tester"), testReducer)
  });
+
+// export const appReducer=(state, action)=>{
+
+// }
  
- export default rootReducer;
+export default rootReducer;
