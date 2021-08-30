@@ -7,12 +7,21 @@ import App from './App';
 import {Provider} from "react-redux";
 import store,{persistor} from './createStore/store';
 import LoadingView from './components/LoadingView';
+import { BrowserRouter } from 'react-router-dom';
+
+
+  console.log("persistor",persistor);
+// persistor.purge();
+persistor.persist();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate persistor={persistor} loading={<LoadingView/>}>
-      <App /></PersistGate>
+      <BrowserRouter>
+        <PersistGate persistor={persistor} loading={<LoadingView/>}>
+          <App />
+        </PersistGate>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

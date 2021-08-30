@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './Counter.module.css';
 
 import { increment,decrement, selectCount, incrementByAmount } from '../reducer/counterSlice';
+import persistor from '../createStore/store'
 
 export default function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
+  console.log("persistor.persist();",persistor);
 
   return (
     <div>

@@ -9,10 +9,23 @@ import testReducer from "./testSlice";
 const persistConfig = (key)=>({
     key,
     storage,
-    // whitelist:'testRedx'
+    // blacklist:['counter']
   });
-   
+// const counterConfig = {
+//   key: 'counter',
+//   storage: storage,
+//   blacklist: ['tester']
+// }
+//   const testerconfig = {
+//     key: 'tester',
+//     storage: storage,
+//     blacklist: ['counter']
+//   }
 const rootReducer= combineReducers({
+
+  
+  // count: persistReducer(counterConfig, counterReducer) ,
+  // test: persistReducer(testerconfig, testReducer) ,
     count: persistReducer(persistConfig("counter"), counterReducer) ,
     test:persistReducer(persistConfig("tester"), testReducer)
  });
