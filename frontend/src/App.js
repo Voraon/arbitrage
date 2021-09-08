@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 import CountClock from "./components/CountClock";
 import Example from './components/Example'
-
 export default function App() {
   return (
     <Router>
@@ -44,7 +43,7 @@ export default function App() {
             <Topics />
           </Route>
           <Route path="/user/:username" component={User} />
-          <Route path="/">
+          <Route exact path="/">
             <Example />
           </Route>
         </Switch>

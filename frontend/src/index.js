@@ -12,7 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 
   console.log("persistor",persistor);
 // persistor.purge();
-persistor.persist();
+// persistor.persist();
 
 ReactDOM.render(
   <React.StrictMode>
